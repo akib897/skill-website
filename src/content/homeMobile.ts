@@ -3,17 +3,18 @@ import { logoH } from "./logoSizes";
 
 const BRAND_LIST = [
   "Adidas",
-  "Guess",
-  "Replay",
-  "DKNY",
-  "Tommy&nbsp;Hilfiger",
-  "KappAhl",
-  "CMP",
-  "Amazon",
-  "Walmart",
+  "Furla",
   "Uniqlo",
-  "The&nbsp;North&nbsp;Face",
+  "Tommy&nbsp;Hilfiger",
+  "Walmart",
+  "Guess",
   "Vans",
+  "DKNY",
+  "KappAhl",
+  "The&nbsp;North&nbsp;Face",
+  "CMP",
+  "Replay",
+  "Amazon",
 ];
 
 function tickerHtml(): string {
