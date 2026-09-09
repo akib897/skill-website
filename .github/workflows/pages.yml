@@ -27,7 +27,7 @@ jobs:
 
       - run: npm ci
 
-      - run: rm -rf src/app/api
+      - run: rm -rf src/app/api src/app/robots.ts src/app/sitemap.ts
 
       - name: Export config
         run: |
@@ -39,7 +39,6 @@ jobs:
             assetPrefix: "/skill-website",
             trailingSlash: true,
             images: { unoptimized: true },
-            eslint: { ignoreDuringBuilds: true },
             typescript: { ignoreBuildErrors: true },
           };
           export default nextConfig;
@@ -60,4 +59,3 @@ jobs:
       name: github-pages
     steps:
       - uses: actions/deploy-pages@v4
-
