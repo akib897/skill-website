@@ -46,6 +46,19 @@ jobs:
 
       - run: npm run build
 
+      # The app hard-codes absolute paths ("/assets/...", "/scripts/...") in
+      # runtime-injected HTML, which 404 under the /skill-website/ sub-path.
+      # Rewrite them in the exported output so the preview shows real content.
+      - name: Rewrite absolute asset paths
+        run: |
+          find out -type f \( -name '*.html' -o -name '*.js' -o -name '*.txt' -o -name '*.json' \) -print0 |
+            xargs -0 sed -i \
+              -e 's#"/assets/#"/skill-website/assets/#g' \
+              -e "s#'/assets/#'/skill-website/assets/#g" \
+              -e 's#(/assets/#(/skill-website/assets/#g' \
+              -e 's#"/scripts/#"/skill-website/scripts/#g' \
+              -e "s#'/scripts/#'/skill-website/scripts/#g"
+
       - run: touch out/.nojekyll
 
       - uses: actions/upload-pages-artifact@v3
