@@ -3,6 +3,7 @@ import Script from "next/script";
 import ContactModal from "@/components/ContactModal";
 import CareerModal from "@/components/CareerModal";
 import CalendlyLoader from "@/components/CalendlyLoader";
+import FeaturebaseProvider from "@/components/FeaturebaseProvider";
 import { SITE_URL, SITE_NAME, DEFAULT_OG_IMAGE } from "@/lib/site";
 import "./globals.css";
 
@@ -97,10 +98,12 @@ export default function RootLayout({
         <link href="https://assets.calendly.com/assets/external/widget.css" rel="stylesheet" />
       </head>
       <body>
-        {children}
-        <ContactModal />
-        <CareerModal />
-        <CalendlyLoader />
+        <FeaturebaseProvider>
+          {children}
+          <ContactModal />
+          <CareerModal />
+          <CalendlyLoader />
+        </FeaturebaseProvider>
         <Script src="/scripts/sg-lazyvideo.js" strategy="afterInteractive" />
         <Script src="/scripts/sg-tool-cursor.js" strategy="lazyOnload" />
         <Script src="/scripts/sg-vhero.js" strategy="afterInteractive" />
