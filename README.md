@@ -1,6 +1,6 @@
 # Skill Graphics website
 
-Next.js site for [Skill Graphics](https://www.skillgraphics.com) — AI-powered image & video post-production.
+Next.js site for [Skill Graphics](https://www.skillgraphics.com) .
 
 ## Local development
 
