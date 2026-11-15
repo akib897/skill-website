@@ -1,0 +1,20 @@
+# Cloudflare Worker settings for the Skill Graphics website chatbot ("Ask Skill").
+# The Anthropic API key is NOT stored here. It is saved in Cloudflare as a secret:
+#   npx wrangler secret put ANTHROPIC_API_KEY
+name = "skillgraphics-chat"
+main = "src/index.js"
+compatibility_date = "2026-10-01"
+compatibility_flags = ["nodejs_compat"]
+
+# Websites allowed to use this chatbot (comma-separated, exact addresses).
+[vars]
+ALLOWED_ORIGINS = "https://www.skillgraphics.biz,https://skillgraphics.biz,https://www.skillgraphics.com,https://skillgraphics.com,http://localhost:3000,http://localhost:3001,http://localhost:3123"
+
+# Anti-abuse: at most 10 messages per minute from one visitor (IP address).
+[[ratelimits]]
+name = "CHAT_LIMITER"
+namespace_id = "1002"
+
+  [ratelimits.simple]
+  limit = 10
+  period = 60

@@ -43,3 +43,8 @@ deploy.env
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# chatbot worker (Cloudflare)
+/chatbot/node_modules
+/chatbot/.wrangler
+/chatbot/.dev.vars

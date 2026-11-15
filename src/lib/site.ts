@@ -18,3 +18,8 @@ export const DEFAULT_OG_IMAGE = "/assets/logo-skill-graphics.png";
 // code change (e.g. to switch event types per campaign).
 export const CALENDLY_URL =
   process.env.NEXT_PUBLIC_CALENDLY_URL || "https://calendly.com/skill-ventures/skill-graphics-discovery-call";
+
+// "Ask Skill" chatbot: our own Cloudflare Worker (code in /chatbot) that
+// answers with Claude Haiku. Override with NEXT_PUBLIC_CHAT_API_URL if needed.
+export const CHAT_API_URL =
+  process.env.NEXT_PUBLIC_CHAT_API_URL || "https://skillgraphics-chat.wild-salad-7cd3.workers.dev";
